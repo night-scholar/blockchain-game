@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.7.6+commit.7338295f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Lib/LibMath.sol": "LibMathSigned"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Lib/LibMath.sol": {
+			"keccak256": "0x4f5d64c25de61effd3fe87995f40cdfff2fed51d16417b1a85f425f557380ddb",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://47a0fc397ecdb23190ef7d82f074a0ff03c67c1571d47ae09be28fb65a0214b2",
+				"dweb:/ipfs/QmUmkBp1YHtepmRMzpu6Bqxiofbg7hvV8tjrWgW85GzkKh"
+			]
+		}
+	},
+	"version": 1
+}
