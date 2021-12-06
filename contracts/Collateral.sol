@@ -39,7 +39,6 @@ contract Collateral {
         } 
     }
 
-
     function toWad(uint256 rawAmount,uint256 decimals) internal pure returns (uint256) {
         int256 scaler = (10**(MAX_DECIMALS - decimals)).toInt256();
         return rawAmount.toInt256().div(scaler).toUint256();

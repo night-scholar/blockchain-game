@@ -6,6 +6,17 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "equipment_",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -27,6 +38,105 @@
 			{
 				"inputs": [
 					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "GameLibrary",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "lossToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "profitToken",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "PlayerState",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "inGame",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "gameName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lossPerHour",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "profitPerHour",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "gameName",
+						"type": "string"
+					}
+				],
+				"name": "addEquipment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "gameName",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "lossToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "profitToken",
+						"type": "address"
+					}
+				],
+				"name": "addGame",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "tokenAddress",
 						"type": "address"
@@ -40,6 +150,76 @@
 				"name": "addToken",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "equipmentAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "equipmentCorGame",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "equipmentIsAlive",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "equipmentURI",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -104,30 +284,6 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "tokenBank",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "tokenAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "decimals",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "address",
 						"name": "tokenAddress",
 						"type": "address"
@@ -138,6 +294,30 @@
 					{
 						"internalType": "uint256",
 						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenLibrary",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "decimals",
 						"type": "uint256"
 					}
 				],
@@ -210,6 +390,14 @@
 				"dweb:/ipfs/QmRGM4F2PcGVF85aTfaA9YBhCHHDqrMhRjyp6fGeBTtirb"
 			]
 		},
+		"@openzeppelin/contracts/introspection/IERC165.sol": {
+			"keccak256": "0xf70bc25d981e4ec9673a995ad2995d5d493ea188d3d8f388bba9c227ce09fb82",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd970f51e3a77790c2f02b5b1759827c3b897c3d98c407b3631e8af32e3dc93c",
+				"dweb:/ipfs/QmPF85Amgbqjk3SNZKsPCsqCw8JfwYEPMnnhvMJUyX58je"
+			]
+		},
 		"@openzeppelin/contracts/math/SafeMath.sol": {
 			"keccak256": "0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52",
 			"license": "MIT",
@@ -234,6 +422,22 @@
 				"dweb:/ipfs/QmUg3CZDbCCcQdroEpexBy5ZFd5vD1UWijWQq9qHZjtJNQ"
 			]
 		},
+		"@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+			"keccak256": "0x2d99a0deb6648c34fbc66d6ac4a2d64798d7a5321b45624f6736fadc63da1962",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2dcdce5ede1e5e650d174ec0b35be7d47b6a50f30bc895ef0d9e59fb75052e45",
+				"dweb:/ipfs/QmQ2XFsDLTYqfEdw7pYzHiGtFRY11yQm4b6ynYgKqDxeB8"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC721/IERC721Metadata.sol": {
+			"keccak256": "0xccb917776f826ac6b68bd5a15a5f711e3967848a52ba11e6104d9a4f593314a7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://430255ad2229ced6d880e61a67bdc6e48dbbaed8354a7c1fe918cd8b8714a886",
+				"dweb:/ipfs/QmTHY56odzqEpEC6v6tafaWMYY7vmULw25q5XHJLCCAeox"
+			]
+		},
 		"@openzeppelin/contracts/utils/Address.sol": {
 			"keccak256": "0x28911e614500ae7c607a432a709d35da25f3bc5ddc8bd12b278b66358070c0ea",
 			"license": "MIT",
@@ -251,19 +455,27 @@
 			]
 		},
 		"contracts/Collateral.sol": {
-			"keccak256": "0xe70211013cc652606bb37894a2cca33e8eb64367b42e803057d9e939f05c9797",
+			"keccak256": "0x6973b5ca1ca8c233ff931d3e6f02eff4e8a24a5492cd0901bbd4eb2581ff7b45",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://8ede1aa9210f4818df4be6784dcdfc6581f8327422b32f1b194803767cbfc19b",
-				"dweb:/ipfs/Qmb38RNUkRygCmxMyjdDQenGNYnQYbqLU4Az5SsyrwMhDq"
+				"bzz-raw://3c6b480be256008e172fc88f1fff0c211cb77efe27848a2c42ac9f19c75c856f",
+				"dweb:/ipfs/QmVvDxTiS94gC7pzgp7kNiGG13Nh1EMoRbVbHyVrDpQVsj"
+			]
+		},
+		"contracts/Equipment.sol": {
+			"keccak256": "0x05f8d5f007ad2b2254120fa3d72b79172f335eac8f3160cf4145acc44a5ae1d4",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://502e4cf80f2315fb660af9d372cbcdf403f533421234a1059c61c27decec88dc",
+				"dweb:/ipfs/QmddYKfmWicRHzbkoJt3hcZv999M2RUBvcxfTeg2C8Lmat"
 			]
 		},
 		"contracts/GameGovernance.sol": {
-			"keccak256": "0xdb5fb58994198cb915ffa5903f7da8182273d05d2a73b88dd6f35a4c25b3113c",
+			"keccak256": "0x6682fc927a74e164fc53b701c9c714417ec542448fa4db99ce39e8994ce1966a",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://e5e6be9675a2341258acc4c20fcd77a9ff4198f1ae72ffc54668e33d669997b9",
-				"dweb:/ipfs/QmSDL8Mm2ziAh3YTzE2hUhyXW5VzXiWdHmgjtMNsYZwuvB"
+				"bzz-raw://dab9ab0023bd6b9ccec35f71c742cd32ecda3a5defd6bd78db34f22ff53889aa",
+				"dweb:/ipfs/QmS6Gc2RY4uqLitdZmqDf4bFKBSTDs7Sgo4Xqn6CSxbiVk"
 			]
 		},
 		"contracts/Lib/LibMath.sol": {

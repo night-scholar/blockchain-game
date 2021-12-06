@@ -65,11 +65,11 @@
 			]
 		},
 		"contracts/Collateral.sol": {
-			"keccak256": "0x9d5edd8f689c5cc2646ff1a4654ec547ac70fda70030e9ed3149b4696b505c14",
+			"keccak256": "0x6973b5ca1ca8c233ff931d3e6f02eff4e8a24a5492cd0901bbd4eb2581ff7b45",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://bae69d4aadac67c6d0c1e1b8455448c26e6cd2b97d39ae8c02ca01dbb6955cfa",
-				"dweb:/ipfs/QmbbtBY4eri55bk7ZXjdj6L1s4RuEivtSVRhJiTyB8bRei"
+				"bzz-raw://3c6b480be256008e172fc88f1fff0c211cb77efe27848a2c42ac9f19c75c856f",
+				"dweb:/ipfs/QmVvDxTiS94gC7pzgp7kNiGG13Nh1EMoRbVbHyVrDpQVsj"
 			]
 		},
 		"contracts/Lib/LibMath.sol": {
