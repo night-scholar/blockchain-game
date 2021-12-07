@@ -62,40 +62,6 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "PlayerState",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "inGame",
-						"type": "bool"
-					},
-					{
-						"internalType": "string",
-						"name": "gameName",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "lossPerHour",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "profitPerHour",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "uint256",
 						"name": "tokenId",
 						"type": "uint256"
@@ -229,31 +195,12 @@
 						"type": "uint256"
 					}
 				],
-				"name": "equipmentIsAlive",
+				"name": "equipmentCorPlayer",
 				"outputs": [
 					{
-						"internalType": "bool",
+						"internalType": "address",
 						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "equipmentURI",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -287,8 +234,61 @@
 					}
 				],
 				"name": "getPlayerRevenue",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "gameName",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "startTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "endTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "profitTokenAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "profitPerHour",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "profitNum",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "lossTokenAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "lossPerHour",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "lossNum",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct GameStorage.PlayerRevenue",
+						"name": "param",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -686,43 +686,51 @@
 			]
 		},
 		"contracts/ChainGame.sol": {
-			"keccak256": "0xd9e04ced898e096a2d852488e311d5b325d5a8ec1f0d94c18dfb571a41dfcee2",
+			"keccak256": "0x4998948572fb207dae5b8c03fca824bcfd56cd8f1c3dd76185c702eb8df00bc1",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://699e072b03f17c59258f63ea277f83875a1fa88d13fdc4cac4b79cc0a12d685a",
-				"dweb:/ipfs/QmU1TYrhL3MRt6Ckrgjt1Gfiy8Zcpo2qbE2onks8HbJhD1"
+				"bzz-raw://61f54312407afb6f6f0e1df2671f34cf8d9874fe00421a14e8eb0d319a250fa9",
+				"dweb:/ipfs/Qmd6jMWaC3EQzv6gm2FW9QNuPct2vvdVjwU24bJYdL2UkB"
 			]
 		},
 		"contracts/Collateral.sol": {
-			"keccak256": "0x6973b5ca1ca8c233ff931d3e6f02eff4e8a24a5492cd0901bbd4eb2581ff7b45",
+			"keccak256": "0x696876b3ddc7d38a13563167492f36008561770d1d26018f1c729fb4ae163d2c",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://3c6b480be256008e172fc88f1fff0c211cb77efe27848a2c42ac9f19c75c856f",
-				"dweb:/ipfs/QmVvDxTiS94gC7pzgp7kNiGG13Nh1EMoRbVbHyVrDpQVsj"
+				"bzz-raw://fa05877526bc255112546b4210c533aa651c119b2543123504e840be2cd0752e",
+				"dweb:/ipfs/QmR2MtharcRcZz1GCUMcn6ECy8CJPWoWu2i8fniCbLbWqr"
 			]
 		},
 		"contracts/Equipment.sol": {
-			"keccak256": "0x41667d5678717f1a86c6cf447471e2498f323c16f385e348beb1856215e9eb55",
+			"keccak256": "0x9b03cc30477d061099eb07c2c2b15473a6a3b9e692caaa5102d3d92d9ea13e00",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://4fb7523a3617a922a0714ef8edb497c769099bcd8cb2a65f77d0ec7cf24bc2c7",
-				"dweb:/ipfs/QmVBD7L4XdqUjTE8TWnbq6Y2AmEjym7xFVbJtSKR8pKtRC"
+				"bzz-raw://e2477eb3060519565f172b653febe4db11b4c8f5e2e6d5f277975cdb284c3540",
+				"dweb:/ipfs/QmX5MDUpKvn8oBkYJzjz1LTu7sySSSw2LeExGeAyGVcCgx"
 			]
 		},
 		"contracts/GameGovernance.sol": {
-			"keccak256": "0x6682fc927a74e164fc53b701c9c714417ec542448fa4db99ce39e8994ce1966a",
+			"keccak256": "0x0cbd655f382de3a08a5ce66c465b8253e1e06fe3a1890628083a75fe43652203",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://dab9ab0023bd6b9ccec35f71c742cd32ecda3a5defd6bd78db34f22ff53889aa",
-				"dweb:/ipfs/QmS6Gc2RY4uqLitdZmqDf4bFKBSTDs7Sgo4Xqn6CSxbiVk"
+				"bzz-raw://5cac2634e986b04f87d6ed6b466a8c27e850c91c578ab3f7b6e87b3744250375",
+				"dweb:/ipfs/QmWCopmpdkL7hDRNdYXnZxjFfKrm4PCQ9r3X3F7BLHZWSr"
+			]
+		},
+		"contracts/GameStorage.sol": {
+			"keccak256": "0x22f305cecc1958c6b89db2bf7dd0f2e76c5ce0ca02d463c1dab5d5a03cf5c2f6",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://85b2c0bed2267129ffa83d276e25733d486fb644ea4b24ad66e61fee78ac6cbd",
+				"dweb:/ipfs/QmWAudvGzJ4LMsqtKi4hJU9Rx94AX3KHZihshrKcTYSYmM"
 			]
 		},
 		"contracts/Lib/LibMath.sol": {
-			"keccak256": "0x4f5d64c25de61effd3fe87995f40cdfff2fed51d16417b1a85f425f557380ddb",
+			"keccak256": "0x8d7f333393c5c7457fb329a3fc32709b6133a973e94b17fdb7f81ed4e57e0a8a",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://47a0fc397ecdb23190ef7d82f074a0ff03c67c1571d47ae09be28fb65a0214b2",
-				"dweb:/ipfs/QmUmkBp1YHtepmRMzpu6Bqxiofbg7hvV8tjrWgW85GzkKh"
+				"bzz-raw://c8fec9deb476a8d4fc561b1fb6cd0d58d89a6ca935a40538aa236703a963e9c4",
+				"dweb:/ipfs/QmR6qZnCSDCWoSMnwLwPQ1pEhySyVUk4EctW8p1QC7fPbA"
 			]
 		}
 	},

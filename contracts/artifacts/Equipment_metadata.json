@@ -166,11 +166,11 @@
 			]
 		},
 		"contracts/Equipment.sol": {
-			"keccak256": "0x41667d5678717f1a86c6cf447471e2498f323c16f385e348beb1856215e9eb55",
+			"keccak256": "0x9b03cc30477d061099eb07c2c2b15473a6a3b9e692caaa5102d3d92d9ea13e00",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://4fb7523a3617a922a0714ef8edb497c769099bcd8cb2a65f77d0ec7cf24bc2c7",
-				"dweb:/ipfs/QmVBD7L4XdqUjTE8TWnbq6Y2AmEjym7xFVbJtSKR8pKtRC"
+				"bzz-raw://e2477eb3060519565f172b653febe4db11b4c8f5e2e6d5f277975cdb284c3540",
+				"dweb:/ipfs/QmX5MDUpKvn8oBkYJzjz1LTu7sySSSw2LeExGeAyGVcCgx"
 			]
 		}
 	},

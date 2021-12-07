@@ -2,11 +2,9 @@
 pragma solidity 0.7.6;
 
 import "@openzeppelin/contracts/token/ERC721/IERC721Metadata.sol";
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721Holder.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "@openzeppelin/contracts/introspection/ERC165.sol";
-
 
 
 contract Equipment is IERC721Receiver, ERC165, ERC721Holder{
@@ -27,8 +25,4 @@ contract Equipment is IERC721Receiver, ERC165, ERC721Holder{
         equipment.safeTransferFrom(address(this),trader,tokenId);
     }
 
-    function getTokenURI(uint256 tokenId) internal returns(string memory tokenUri){
-        tokenUri = equipment.tokenURI(tokenId);
-        return tokenUri;
-    }
 }

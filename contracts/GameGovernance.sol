@@ -1,57 +1,18 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.7.6;
 
+import "./GameStorage.sol";
 import "./Collateral.sol";
 import "./Equipment.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 
-contract GameGovernance is Collateral,Equipment,Ownable{
-    //用户游戏状态
-    struct State{
-        bool inGame;
-        string gameName;
-        uint256 lossPerHour;
-        uint256 profitPerHour;
-    }
-    mapping(address=>State) public PlayerState;
+contract GameGovernance is GameStorage,Collateral,Equipment,Ownable{
 
-    //游戏库(游戏名称->游戏属性)
-    struct GameAttribute{
-        address lossToken;
-        address profitToken;
-    }
-    mapping(string=>GameAttribute) public GameLibrary;
-
-    //代币权限
-    
-
-    //token属性，不再需要，都是18位的。
-    struct TokenAttribute{
-        address tokenAddress;
-        uint256 decimals;
-    }
-    struct TokenAddress{
-        address tokenAddress;
-        uint256 amount;
-    }
-    struct Tokens{
-        TokenAddress[] tokenAddresses;
-    }
-    TokenAttribute[] public tokenLibrary;
-    bool public isPaused;
-    mapping(address => Tokens)  Wallets;
-    mapping(uint256 => bool) public equipmentIsAlive;
-    mapping(uint256 => string) public equipmentURI;
-    //装备id对应的游戏
-    mapping(uint256 => string) public equipmentCorGame;
-
-    constructor (address equipment_) Equipment(equipment_){
-
-    }
+    constructor (address equipment_) Equipment(equipment_){}
 
     //添加代币到代币库
-    function addToken(address tokenAddress, uint256 decimals) onlyOwner external {
+    function addToken(address tokenAddress,uint256 decimals) onlyOwner external {
         //要求代币不存在于Token库中
         require(decimals <= 18,"Precision error");
         require(decimals > 0,"Precision error");

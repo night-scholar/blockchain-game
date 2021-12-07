@@ -81,12 +81,48 @@
 					},
 					{
 						"internalType": "uint256",
+						"name": "startTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "endTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
 						"name": "lossPerHour",
 						"type": "uint256"
 					},
 					{
 						"internalType": "uint256",
 						"name": "profitPerHour",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_ONE_HOUR",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_WAD",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
 						"type": "uint256"
 					}
 				],
@@ -192,31 +228,12 @@
 						"type": "uint256"
 					}
 				],
-				"name": "equipmentIsAlive",
+				"name": "equipmentCorPlayer",
 				"outputs": [
 					{
-						"internalType": "bool",
+						"internalType": "address",
 						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "equipmentURI",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -255,6 +272,40 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC721Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "owner",
 				"outputs": [
@@ -279,6 +330,25 @@
 				"name": "renounceOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -348,11 +418,17 @@
 		"devdoc": {
 			"kind": "dev",
 			"methods": {
+				"onERC721Received(address,address,uint256,bytes)": {
+					"details": "See {IERC721Receiver-onERC721Received}. Always returns `IERC721Receiver.onERC721Received.selector`."
+				},
 				"owner()": {
 					"details": "Returns the address of the current owner."
 				},
 				"renounceOwnership()": {
 					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"supportsInterface(bytes4)": {
+					"details": "See {IERC165-supportsInterface}. Time complexity O(1), guaranteed to always use less than 30 000 gas."
 				},
 				"transferOwnership(address)": {
 					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
@@ -390,6 +466,14 @@
 				"dweb:/ipfs/QmRGM4F2PcGVF85aTfaA9YBhCHHDqrMhRjyp6fGeBTtirb"
 			]
 		},
+		"@openzeppelin/contracts/introspection/ERC165.sol": {
+			"keccak256": "0x24141d2f6b98d4cb77a8936eae8cbaad2e261d9062bdc08036096f4550092501",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b710eb003944777135f027500a5a57b479fe857849f5f467c1ef9687401e3c95",
+				"dweb:/ipfs/QmcELzi6KRzAs3DXwxdsoKWRJ13KSeipKQsJgD3unctdZM"
+			]
+		},
 		"@openzeppelin/contracts/introspection/IERC165.sol": {
 			"keccak256": "0xf70bc25d981e4ec9673a995ad2995d5d493ea188d3d8f388bba9c227ce09fb82",
 			"license": "MIT",
@@ -422,6 +506,14 @@
 				"dweb:/ipfs/QmUg3CZDbCCcQdroEpexBy5ZFd5vD1UWijWQq9qHZjtJNQ"
 			]
 		},
+		"@openzeppelin/contracts/token/ERC721/ERC721Holder.sol": {
+			"keccak256": "0xdb2133d55b8f3a94313af8f4371ae0501a58e412d471b03d8581214c5ea2ce33",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cea1e4bf769f27c8c9c1442f1518b49ef6c8b71a4bd4ce88353da9e9a8ba1704",
+				"dweb:/ipfs/QmR1b8sj7fxgeHqDksV4GYTjZS1qajWC3yg9VCMUJus2bF"
+			]
+		},
 		"@openzeppelin/contracts/token/ERC721/IERC721.sol": {
 			"keccak256": "0x2d99a0deb6648c34fbc66d6ac4a2d64798d7a5321b45624f6736fadc63da1962",
 			"license": "MIT",
@@ -436,6 +528,14 @@
 			"urls": [
 				"bzz-raw://430255ad2229ced6d880e61a67bdc6e48dbbaed8354a7c1fe918cd8b8714a886",
 				"dweb:/ipfs/QmTHY56odzqEpEC6v6tafaWMYY7vmULw25q5XHJLCCAeox"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
+			"keccak256": "0x52146049d6709c870e8ddcd988b5155cb6c5d640cfcd8978aee52bc1ba2ec4eb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ada84513617b7c1b2f890b44503735abaec73a1acd030112a17aac7e6c66a4a1",
+				"dweb:/ipfs/QmaiFwdio67iJrfjAdkMac24eJ5sS1qD7CZW6PhUU6KjiK"
 			]
 		},
 		"@openzeppelin/contracts/utils/Address.sol": {
@@ -455,35 +555,43 @@
 			]
 		},
 		"contracts/Collateral.sol": {
-			"keccak256": "0x6973b5ca1ca8c233ff931d3e6f02eff4e8a24a5492cd0901bbd4eb2581ff7b45",
+			"keccak256": "0x696876b3ddc7d38a13563167492f36008561770d1d26018f1c729fb4ae163d2c",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://3c6b480be256008e172fc88f1fff0c211cb77efe27848a2c42ac9f19c75c856f",
-				"dweb:/ipfs/QmVvDxTiS94gC7pzgp7kNiGG13Nh1EMoRbVbHyVrDpQVsj"
+				"bzz-raw://fa05877526bc255112546b4210c533aa651c119b2543123504e840be2cd0752e",
+				"dweb:/ipfs/QmR2MtharcRcZz1GCUMcn6ECy8CJPWoWu2i8fniCbLbWqr"
 			]
 		},
 		"contracts/Equipment.sol": {
-			"keccak256": "0x05f8d5f007ad2b2254120fa3d72b79172f335eac8f3160cf4145acc44a5ae1d4",
+			"keccak256": "0x9b03cc30477d061099eb07c2c2b15473a6a3b9e692caaa5102d3d92d9ea13e00",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://502e4cf80f2315fb660af9d372cbcdf403f533421234a1059c61c27decec88dc",
-				"dweb:/ipfs/QmddYKfmWicRHzbkoJt3hcZv999M2RUBvcxfTeg2C8Lmat"
+				"bzz-raw://e2477eb3060519565f172b653febe4db11b4c8f5e2e6d5f277975cdb284c3540",
+				"dweb:/ipfs/QmX5MDUpKvn8oBkYJzjz1LTu7sySSSw2LeExGeAyGVcCgx"
 			]
 		},
 		"contracts/GameGovernance.sol": {
-			"keccak256": "0x6682fc927a74e164fc53b701c9c714417ec542448fa4db99ce39e8994ce1966a",
+			"keccak256": "0x0cbd655f382de3a08a5ce66c465b8253e1e06fe3a1890628083a75fe43652203",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://dab9ab0023bd6b9ccec35f71c742cd32ecda3a5defd6bd78db34f22ff53889aa",
-				"dweb:/ipfs/QmS6Gc2RY4uqLitdZmqDf4bFKBSTDs7Sgo4Xqn6CSxbiVk"
+				"bzz-raw://5cac2634e986b04f87d6ed6b466a8c27e850c91c578ab3f7b6e87b3744250375",
+				"dweb:/ipfs/QmWCopmpdkL7hDRNdYXnZxjFfKrm4PCQ9r3X3F7BLHZWSr"
+			]
+		},
+		"contracts/GameStorage.sol": {
+			"keccak256": "0x9a5486dfbbacd35f06d74a6596dd367229801ebdff90363b469bcb651f0b8747",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://99695897516909cabab05190eb070e6005cf28161d3392606ca84fdaaae8b755",
+				"dweb:/ipfs/QmZK18w3CWrhz1eJHFTdgVsqmZ1fDhWp2Abs15kasqkwy6"
 			]
 		},
 		"contracts/Lib/LibMath.sol": {
-			"keccak256": "0x4f5d64c25de61effd3fe87995f40cdfff2fed51d16417b1a85f425f557380ddb",
+			"keccak256": "0x8d7f333393c5c7457fb329a3fc32709b6133a973e94b17fdb7f81ed4e57e0a8a",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://47a0fc397ecdb23190ef7d82f074a0ff03c67c1571d47ae09be28fb65a0214b2",
-				"dweb:/ipfs/QmUmkBp1YHtepmRMzpu6Bqxiofbg7hvV8tjrWgW85GzkKh"
+				"bzz-raw://c8fec9deb476a8d4fc561b1fb6cd0d58d89a6ca935a40538aa236703a963e9c4",
+				"dweb:/ipfs/QmR6qZnCSDCWoSMnwLwPQ1pEhySyVUk4EctW8p1QC7fPbA"
 			]
 		}
 	},

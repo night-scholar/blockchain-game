@@ -715,11 +715,11 @@
 			]
 		},
 		"contracts/testToken/TestERC721.sol": {
-			"keccak256": "0xf0759b3e04f62d4858f4989c904868d2157a73adbd649c0a61e54f7de81d973b",
+			"keccak256": "0xdf8a5d2829d35aef756de72cf30b40432026c4e7d243635dbc97845e61f1e8b4",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://f440833eb9186810ec4bda846c296c91fa500de28249f73a6eecdba677a4c31f",
-				"dweb:/ipfs/QmP5sUwtzcj1WpemdGcsdfdvEf19di5xaMqjgkWR2hNEbx"
+				"bzz-raw://16acfbc337e73744fad70bf1691e0fb62133fd78afe3a7047b1e7037396fac50",
+				"dweb:/ipfs/QmduQ4un8f9rxGRWbMKVqYDmLZgwh3jBCnxywfF1YUSxsK"
 			]
 		}
 	},
