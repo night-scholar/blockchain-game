@@ -13,6 +13,7 @@ contract GameStorage {
         string gameName;
         uint256 startTime;
         uint256 endTime;
+        uint256 lastActivationTime;
         uint256 lossPerHour;
         uint256 profitPerHour;
     }
@@ -28,6 +29,7 @@ contract GameStorage {
         address lossTokenAddress;
         uint256 lossPerHour;
         uint256 lossNum;
+        uint256 pauseTime;
     }
 
     //游戏库(游戏名称->游戏属性)
@@ -37,14 +39,7 @@ contract GameStorage {
     }
     mapping(string=>GameAttribute) public GameLibrary;
 
-    //代币权限
     
-
-    //token属性，不再需要，都是18位的。
-    struct TokenAttribute{
-        address tokenAddress;
-        uint256 decimals;
-    }
     struct TokenAddress{
         address tokenAddress;
         uint256 amount;
@@ -52,12 +47,13 @@ contract GameStorage {
     struct Tokens{
         TokenAddress[] tokenAddresses;
     }
-    //erc20 token库
-    TokenAttribute[] public tokenLibrary;
+    //用户对应的token地址的余额
+    mapping(address => Tokens)  Wallets;
+
+    //erc20 token库 token地址->token名称
+    mapping(address => string) tokenLibrary;
     //系统是否暂停
     bool public isPaused;
-    //用户对应的token地址
-    mapping(address => Tokens)  Wallets;
     
     //装备id对应的游戏
     mapping(uint256 => string) public equipmentCorGame;

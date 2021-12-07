@@ -13,9 +13,14 @@ contract Collateral {
     using LibMathSigned for int256;
     using LibMathUnsigned for uint256;
     uint256 private constant MAX_DECIMALS = 18;
-    function deposit(address tokenAddress,address trader, uint256 rawAmount,uint256 decimals) internal {
-        uint256 wadAmount = toWad(rawAmount,decimals);
+    function deposit(address tokenAddress,address trader, uint256 rawAmount) internal {
+        uint256 wadAmount = toWad(rawAmount,MAX_DECIMALS);
         pullCollateral(tokenAddress,trader, wadAmount);
+    }
+
+    function withdraw(address tokenAddress,address trader, uint256 rawAmount) internal{
+        uint256 wadAmount = toWad(rawAmount,MAX_DECIMALS);
+        pushCollateral(tokenAddress,trader, wadAmount);
     }
 
     function withdraw(address tokenAddress,address trader, uint256 rawAmount,uint256 decimals) internal{

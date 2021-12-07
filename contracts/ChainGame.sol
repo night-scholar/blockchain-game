@@ -12,10 +12,9 @@ contract ChainGame is GameGovernance{
     function depositCollateral(address tokenAddress , uint256 amount) public payable returns(bool){
         require(!isPaused,"system paused");
         //要求代币存在于Token库中
-        uint256 decimals = tokenInBank(tokenAddress);
-        require(decimals != 0 ,"token not in tokenBank");
+        require(bytes(tokenLibrary[tokenAddress]).length == 0 ,"can not find this token");
         require(amount > 0, "amount must be greater than 0");
-        Collateral.deposit(tokenAddress,msg.sender, amount,decimals);
+        Collateral.deposit(tokenAddress,msg.sender, amount);
         for (uint i =0 ; i<Wallets[msg.sender].tokenAddresses.length ;i++){
             if (Wallets[msg.sender].tokenAddresses[i].tokenAddress == tokenAddress){
                 Wallets[msg.sender].tokenAddresses[i].amount += amount;
@@ -27,17 +26,22 @@ contract ChainGame is GameGovernance{
     }
 
     //取款ERC20
-    function withdrawCollateral(address tokenAddress,address trader,uint256 amount) public onlyOwner returns(bool){
+    function withdrawCollateral(address tokenAddress,uint256 amount) public onlyOwner returns(bool){
+        //要求取款数量大于0
+        require(amount > 0, "amount must be greater than 0");
+        //要求系统不在暂停状态
         require(!isPaused,"system paused");
         //要求代币存在于Token库中
-        uint256 decimals = tokenInBank(tokenAddress);
-        require(decimals != 0 ,"token not in tokenBank");
-        require(amount > 0, "amount must be greater than 0");
-        for (uint i =0 ; i<Wallets[trader].tokenAddresses.length ;i++){
-            if (Wallets[trader].tokenAddresses[i].tokenAddress == tokenAddress){
-                require(Wallets[trader].tokenAddresses[i].amount >= amount,"token not enough");
-                Wallets[trader].tokenAddresses[i].amount -= amount;
-                Collateral.withdraw(tokenAddress,trader, amount,decimals);
+        require(bytes(tokenLibrary[tokenAddress]).length == 0,"can not find this token");
+        if (PlayerState[msg.sender].inGame){
+            //要求代币不在游戏中
+            require(GameLibrary[PlayerState[msg.sender].gameName].profitToken!=tokenAddress&&GameLibrary[PlayerState[msg.sender].gameName].lossToken!=tokenAddress,"token in gaming");
+        }
+        for (uint i =0 ; i<Wallets[msg.sender].tokenAddresses.length ;i++){
+            if (Wallets[msg.sender].tokenAddresses[i].tokenAddress == tokenAddress){
+                require(Wallets[msg.sender].tokenAddresses[i].amount >= amount,"token not enough");
+                Wallets[msg.sender].tokenAddresses[i].amount -= amount;
+                Collateral.withdraw(tokenAddress,msg.sender, amount);
                 return true;
             }
         }
@@ -64,15 +68,16 @@ contract ChainGame is GameGovernance{
         //装备是否已经存进来了
         require(equipmentCorPlayer[tokenId] == player,"The equipment was not found");
         //玩家是否正在在进行游戏
-        require(!PlayerState[player].inGame,"trader is playing");
+        require(!PlayerState[player].inGame,"player is playing");
         //玩家的NFT道具是否能够玩该游戏
         require(keccak256(abi.encodePacked(equipmentCorGame[tokenId])) == keccak256(abi.encodePacked(gameName)),"equipment can not play this game");
-        //获取当前时间戳
+        //判断一小时内用户账户是否满足支出
+        require(getBalance(GameLibrary[gameName].lossToken)>=lossPerHour,"have not enough token");
+        //获取当前时间
         uint256 startTime = timeNow();
         uint256 endTime = increaseTime(startTime);
-        //判断一小时内用户账户是否满足支出
         //记录游戏状态
-        PlayerState[player] = (State(true,gameName,startTime,endTime,lossPerHour,profitPerHour));
+        PlayerState[player] = (State(true,gameName,startTime,endTime,0,lossPerHour,profitPerHour));
     }
 
     function getPlayerRevenue(address player) view public returns(PlayerRevenue memory param){
@@ -93,8 +98,8 @@ contract ChainGame is GameGovernance{
         //如果结束时间超过了当前时间，则按当前时间计算
             realEndTime = timeNow;
         }
-        //获取游戏时间,小时*10**18
-        uint256 gameTime = realEndTime.sub(playerState.startTime).div(_ONE_HOUR);
+        //获取实际游戏时间,小时*10**18,实际时间=结束时间-开始时间-暂停时间
+        uint256 gameTime = (realEndTime.sub(playerState.startTime)).div(_ONE_HOUR);
         //判断收益
         uint256 profitNum = gameTime.mul(playerState.profitPerHour).div(_WAD);
         //判断支出
@@ -109,6 +114,15 @@ contract ChainGame is GameGovernance{
         param.lossTokenAddress = gameAttribute.lossToken;
         param.lossPerHour = playerState.lossPerHour;
         param.lossNum = lossNum;
+    }
+
+    //继续游戏
+    function continueTheGame(address player) public {
+        //要求玩家在游戏中
+        require(!PlayerState[player].inGame,"player is playing");
+        //要求继续游戏后玩家余额满足支出
+
+        // playerState[player].lastActivationTime
     }
 
 

@@ -103,17 +103,30 @@
 			{
 				"inputs": [
 					{
+						"internalType": "string",
+						"name": "tokenName",
+						"type": "string"
+					},
+					{
 						"internalType": "address",
 						"name": "tokenAddress",
 						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "decimals",
-						"type": "uint256"
 					}
 				],
 				"name": "addToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					}
+				],
+				"name": "continueTheGame",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -281,6 +294,11 @@
 								"internalType": "uint256",
 								"name": "lossNum",
 								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "pauseTime",
+								"type": "uint256"
 							}
 						],
 						"internalType": "struct GameStorage.PlayerRevenue",
@@ -421,49 +439,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "tokenAddress",
-						"type": "address"
-					}
-				],
-				"name": "tokenInBank",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "tokenLibrary",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "tokenAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "decimals",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "newOwner",
 						"type": "address"
 					}
@@ -485,11 +460,6 @@
 					{
 						"internalType": "address",
 						"name": "tokenAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "trader",
 						"type": "address"
 					},
 					{
@@ -686,19 +656,19 @@
 			]
 		},
 		"contracts/ChainGame.sol": {
-			"keccak256": "0x4998948572fb207dae5b8c03fca824bcfd56cd8f1c3dd76185c702eb8df00bc1",
+			"keccak256": "0x582471287cf5e585cbbf283204d50f556f2837f517f4539e6e44203ce1a175da",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://61f54312407afb6f6f0e1df2671f34cf8d9874fe00421a14e8eb0d319a250fa9",
-				"dweb:/ipfs/Qmd6jMWaC3EQzv6gm2FW9QNuPct2vvdVjwU24bJYdL2UkB"
+				"bzz-raw://e3c327535478bcb009de86fca473744c05f0e940a7d088433bc3eee9e06211cb",
+				"dweb:/ipfs/QmVPxm2RKYLdpYnrk8LMTXXCxepUbdpmWBZnEHnvDawfMX"
 			]
 		},
 		"contracts/Collateral.sol": {
-			"keccak256": "0x696876b3ddc7d38a13563167492f36008561770d1d26018f1c729fb4ae163d2c",
+			"keccak256": "0x5de533a10541309495ba8bc7564ab5fa73262a305f3824096a37003c69d3ed6b",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://fa05877526bc255112546b4210c533aa651c119b2543123504e840be2cd0752e",
-				"dweb:/ipfs/QmR2MtharcRcZz1GCUMcn6ECy8CJPWoWu2i8fniCbLbWqr"
+				"bzz-raw://d9f4428b6bd1d0796e6092b9abb19da3083c7f9aa25181f628c9d19b6c3bc3f8",
+				"dweb:/ipfs/QmP25Z4mj6GvpyaHEMwnw3pHdgypvbkqyb1BcPVVynwP4z"
 			]
 		},
 		"contracts/Equipment.sol": {
@@ -710,19 +680,19 @@
 			]
 		},
 		"contracts/GameGovernance.sol": {
-			"keccak256": "0x0cbd655f382de3a08a5ce66c465b8253e1e06fe3a1890628083a75fe43652203",
+			"keccak256": "0x761a2340fe32a54fb03dcfbcfef918a42f20e7dc51260648a6d9e775253be523",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://5cac2634e986b04f87d6ed6b466a8c27e850c91c578ab3f7b6e87b3744250375",
-				"dweb:/ipfs/QmWCopmpdkL7hDRNdYXnZxjFfKrm4PCQ9r3X3F7BLHZWSr"
+				"bzz-raw://7279ee341c9d17baf550e992a8e0351f448cb13d2d2acfdd7bb386290b300242",
+				"dweb:/ipfs/QmbTpdWpx629NJacr68WTwhNaivj7h2PippBkRa5T91a1C"
 			]
 		},
 		"contracts/GameStorage.sol": {
-			"keccak256": "0x22f305cecc1958c6b89db2bf7dd0f2e76c5ce0ca02d463c1dab5d5a03cf5c2f6",
+			"keccak256": "0x618d10c8d9c6bc5248da672178f0af7ba59502ae0c60651f1c2c56f04eb75bb8",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://85b2c0bed2267129ffa83d276e25733d486fb644ea4b24ad66e61fee78ac6cbd",
-				"dweb:/ipfs/QmWAudvGzJ4LMsqtKi4hJU9Rx94AX3KHZihshrKcTYSYmM"
+				"bzz-raw://c99aa38ffb26c3080fcf7af0318d4aeb0830810a170045dbebcf7d3f3d9f99ea",
+				"dweb:/ipfs/Qma4pEq2rXm6HwAsrJ1izX8rtV9r1Sispmh3dwaaUhQcRd"
 			]
 		},
 		"contracts/Lib/LibMath.sol": {

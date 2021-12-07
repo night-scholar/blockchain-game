@@ -12,12 +12,10 @@ contract GameGovernance is GameStorage,Collateral,Equipment,Ownable{
     constructor (address equipment_) Equipment(equipment_){}
 
     //添加代币到代币库
-    function addToken(address tokenAddress,uint256 decimals) onlyOwner external {
+    function addToken(string memory tokenName,address tokenAddress) onlyOwner external {
         //要求代币不存在于Token库中
-        require(decimals <= 18,"Precision error");
-        require(decimals > 0,"Precision error");
-        require(tokenInBank(tokenAddress) == 0,"token already exists");
-        tokenLibrary.push(TokenAttribute(tokenAddress,decimals));
+        require( keccak256(abi.encodePacked(tokenLibrary[tokenAddress])) == keccak256(abi.encodePacked(tokenName)),"token already exists");
+        tokenLibrary[tokenAddress] = tokenName;
     }
 
     //添加游戏
@@ -41,16 +39,6 @@ contract GameGovernance is GameStorage,Collateral,Equipment,Ownable{
         }
         return 0;
     }
-
-    function tokenInBank(address tokenAddress) public view returns(uint256){
-        for (uint256 i =0 ;i< tokenLibrary.length;i++){
-            if (tokenAddress == tokenLibrary[i].tokenAddress){
-                return tokenLibrary[i].decimals;
-            }
-        }
-        return 0;
-    }
-
 
     //暂停
     function pause() external onlyOwner{

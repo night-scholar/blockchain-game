@@ -65,19 +65,19 @@
 			]
 		},
 		"contracts/Collateral.sol": {
-			"keccak256": "0x6973b5ca1ca8c233ff931d3e6f02eff4e8a24a5492cd0901bbd4eb2581ff7b45",
+			"keccak256": "0x5de533a10541309495ba8bc7564ab5fa73262a305f3824096a37003c69d3ed6b",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://3c6b480be256008e172fc88f1fff0c211cb77efe27848a2c42ac9f19c75c856f",
-				"dweb:/ipfs/QmVvDxTiS94gC7pzgp7kNiGG13Nh1EMoRbVbHyVrDpQVsj"
+				"bzz-raw://d9f4428b6bd1d0796e6092b9abb19da3083c7f9aa25181f628c9d19b6c3bc3f8",
+				"dweb:/ipfs/QmP25Z4mj6GvpyaHEMwnw3pHdgypvbkqyb1BcPVVynwP4z"
 			]
 		},
 		"contracts/Lib/LibMath.sol": {
-			"keccak256": "0x4f5d64c25de61effd3fe87995f40cdfff2fed51d16417b1a85f425f557380ddb",
+			"keccak256": "0x8d7f333393c5c7457fb329a3fc32709b6133a973e94b17fdb7f81ed4e57e0a8a",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://47a0fc397ecdb23190ef7d82f074a0ff03c67c1571d47ae09be28fb65a0214b2",
-				"dweb:/ipfs/QmUmkBp1YHtepmRMzpu6Bqxiofbg7hvV8tjrWgW85GzkKh"
+				"bzz-raw://c8fec9deb476a8d4fc561b1fb6cd0d58d89a6ca935a40538aa236703a963e9c4",
+				"dweb:/ipfs/QmR6qZnCSDCWoSMnwLwPQ1pEhySyVUk4EctW8p1QC7fPbA"
 			]
 		}
 	},
