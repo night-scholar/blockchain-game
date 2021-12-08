@@ -513,11 +513,11 @@
 			]
 		},
 		"contracts/testToken/TestERC1155.sol": {
-			"keccak256": "0x974f2c8cc293028bef74e682f7a6832290e6173fbe697f6df9ffeeed3e072ae7",
+			"keccak256": "0x3f0c709bd336434a1c4fcf29b112724e3a02558fedac9b4d8e116761764e8db6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://899b0746e71c098e12e7ca7f89c98784e7d50a5516d15a18eab4ad69740b2bca",
-				"dweb:/ipfs/QmPFkoRaannEuGehcgdA683A8xE6XWMHHKkbh7WFrtWqX2"
+				"bzz-raw://5a36e7d34712cb3dbbcea7435f1110769012c1f3cb129e58878448900eeb2d89",
+				"dweb:/ipfs/QmfZb6xTh78aekjDEFxV8sgnuZvWBZ68Gfy41VVzrjKnm2"
 			]
 		}
 	},

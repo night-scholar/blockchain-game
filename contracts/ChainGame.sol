@@ -113,6 +113,7 @@ contract ChainGame is GameGovernance{
         //查看该小时过后的实际游戏时间,小时*10**18
         uint256 gameTime = (playerState.endTime.sub(playerState.startTime).sub(playerState.pauseTime)).div(_ONE_HOUR);
         require(getBalance(GameLibrary[playerState.gameName].lossToken,player)>=gameTime.mul(playerState.lossPerHour).div(_WAD),"have not enough token");
+        PlayerState[player] = playerState;
     }
 
     //结束游戏
@@ -134,6 +135,9 @@ contract ChainGame is GameGovernance{
         increaseBalance(GameLibrary[playerState.gameName].profitToken, msg.sender, profitNum);
         //减少余额
         decreaseBalance(GameLibrary[playerState.gameName].lossToken, msg.sender, lossNum);
+        //恢复状态
+        State memory newState;
+        PlayerState[msg.sender] = newState;
     }
 
     //提取其他币

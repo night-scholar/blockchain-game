@@ -55,14 +55,28 @@ contract GameGovernance is GameStorage,Collateral,Equipment,Ownable{
     }
 
     //添加余额
-    function increaseBalance(address tokenAddress,address player,uint256 amount) internal{
+    function increaseBalance(address tokenAddress,address player,uint256 amount) internal returns(bool){
         for (uint i =0 ; i<Wallets[player].tokenAddresses.length ;i++){
             if (Wallets[player].tokenAddresses[i].tokenAddress == tokenAddress){
                 Wallets[player].tokenAddresses[i].amount = Wallets[player].tokenAddresses[i].amount.add(amount);
+                return true;
             }
         }
+        Wallets[player].tokenAddresses.push(TokenAddress(tokenAddress,amount));
+        return true;
     }
-    
+
+    //减少余额
+    function decreaseBalance(address tokenAddress,address player,uint256 amount) internal returns(bool){
+        for (uint i =0 ; i<Wallets[player].tokenAddresses.length ;i++){
+            if (Wallets[player].tokenAddresses[i].tokenAddress == tokenAddress){
+                Wallets[player].tokenAddresses[i].amount = Wallets[player].tokenAddresses[i].amount.sub(amount);
+                return true;
+            }
+        }
+        revert("can not find address in tokenAddresses");
+    }
+
     //添加token余额
     function increaseTokenToFund(address tokenAddress,uint256 amount) onlyOwner payable external{
         Collateral.deposit(tokenAddress,msg.sender, amount);
@@ -77,14 +91,6 @@ contract GameGovernance is GameStorage,Collateral,Equipment,Ownable{
     }
 
 
-    //减少余额
-    function decreaseBalance(address tokenAddress,address player,uint256 amount) internal{
-        for (uint i =0 ; i<Wallets[player].tokenAddresses.length ;i++){
-            if (Wallets[player].tokenAddresses[i].tokenAddress == tokenAddress){
-                Wallets[player].tokenAddresses[i].amount = Wallets[player].tokenAddresses[i].amount.sub(amount);
-            }
-        }
-    }
     //获取玩家收益
     function getPlayerRevenue(address player) view public returns(PlayerRevenue memory param){
         State memory playerState = PlayerState[player];

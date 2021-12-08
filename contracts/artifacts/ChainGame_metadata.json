@@ -146,7 +146,7 @@
 				],
 				"name": "decreaseTokenFromFund",
 				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -354,7 +354,7 @@
 				],
 				"name": "increaseTokenToFund",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -742,19 +742,19 @@
 			]
 		},
 		"contracts/ChainGame.sol": {
-			"keccak256": "0xe166ba2e121df9497651a17a3f250a3c2181a7524bb4bdd26f6343e27e68be24",
+			"keccak256": "0x9ba595bbe727d13359bfa6b7fb447dd48575a9a2a9226a804c4d8258842f94b3",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://29e81dc2a9771be0d42c052ab2ccf8602a6272350b03ecc55d3442eb504042e5",
-				"dweb:/ipfs/QmWCmtpqjzphiCcP9WKkB4V6S76zybPDt5MCsvdvHjtgxW"
+				"bzz-raw://fcb99ad443fae382f9dc6b7e8495039be1ddbd6995af2044b01b654ce68a759c",
+				"dweb:/ipfs/QmaqaekimLpzRPkZYyrQ76hfMGMH9dzkUTbZ2UVTCoRDn1"
 			]
 		},
 		"contracts/GameGovernance.sol": {
-			"keccak256": "0xabcf9677be13a40e36138a3c1ff35e32239801645f23176d26e00b64693a405c",
+			"keccak256": "0x217a64a3f8da73bda7e2c565e0362e5aad44fd2b3c98f86684928ce2dbf42f86",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://33aa679d69c4c84a8022be0b4dde20aff1dd8a9bc2550e6ff56720d5739f2c1f",
-				"dweb:/ipfs/QmSBVZk9NJZDU5A3iRu4NxoDeJoovL9B3YTKyYzxmqd3Tr"
+				"bzz-raw://cb81042c15fdc521117eed0c2e414997ef8b3026a38e9e0729f8993be4b6d2bb",
+				"dweb:/ipfs/QmfX8dpK3ucG2yiHGA7sF4p5VWcc9bRcdoavzMEFHQAsvQ"
 			]
 		},
 		"contracts/GameStorage.sol": {

@@ -16,9 +16,11 @@
 
 ## 剩余工作
 
-添加NFT装备磨损
+IPFS文件夹批量储存哈希https://forum.openzeppelin.com/t/how-to-erc-1155-id-substitution-for-token-uri/3312/6
 
+如果使用`uri`，则需要存储 ipfs 哈希，但可以使用文件夹批量存储（每批次一个哈希）。这就是我们为[https://sandbox.game](https://sandbox.game/)所做的。
 
+https://www.its304.com/article/weixin_29491885/112389373#3__28 IPFS和IPNS
 
 ## 测试
 
@@ -48,7 +50,7 @@ AXE（斧子）
 ChainGame（游戏）
 
 ```
-0xf1Ff3aAb89Fc80F962Eb71815B7E023570ccb0a6
+0x8831355C59DEde867e54D158F8fBC8B96444f0C9
 ```
 
 游戏名称：CutDownTrees
@@ -58,4 +60,6 @@ ChainGame（游戏）
 ## 问题
 
 每次存入NFT都需要授权？
+
+存入的ERC20token在游戏结束取款后怎么记录。
 
