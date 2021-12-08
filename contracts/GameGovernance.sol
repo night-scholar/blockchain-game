@@ -3,8 +3,8 @@ pragma solidity 0.7.6;
 pragma abicoder v2;
 
 import "./GameStorage.sol";
-import "./Collateral.sol";
-import "./Equipment.sol";
+import "./props/Collateral.sol";
+import "./props/Equipment.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
 

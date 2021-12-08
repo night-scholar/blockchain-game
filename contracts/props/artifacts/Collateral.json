@@ -1,0 +1,66 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"görli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220581edaa3f7ac6549a2ee05d4f118c97b93241142fdaf476b4fb6c14ac4fae4e464736f6c63430007060033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x3F DUP1 PUSH1 0x1D PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 PC 0x1E 0xDA LOG3 0xF7 0xAC PUSH6 0x49A2EE05D4F1 XOR 0xC9 PUSH28 0x93241142FDAF476B4FB6C14AC4FAE4E464736F6C6343000706003300 ",
+			"sourceMap": "299:1728:5:-:0;;;;;;;;;;;;;;;;;;;"
+		},
+		"deployedBytecode": {
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "6080604052600080fdfea2646970667358221220581edaa3f7ac6549a2ee05d4f118c97b93241142fdaf476b4fb6c14ac4fae4e464736f6c63430007060033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 PC 0x1E 0xDA LOG3 0xF7 0xAC PUSH6 0x49A2EE05D4F1 XOR 0xC9 PUSH28 0x93241142FDAF476B4FB6C14AC4FAE4E464736F6C6343000706003300 ",
+			"sourceMap": "299:1728:5:-:0;;;;;"
+		},
+		"gasEstimates": {
+			"creation": {
+				"codeDepositCost": "12600",
+				"executionCost": "66",
+				"totalCost": "12666"
+			},
+			"internal": {
+				"deposit(address,address,uint256)": "infinite",
+				"pullCollateral(address,address,uint256)": "infinite",
+				"pushCollateral(address,address,uint256)": "infinite",
+				"toWad(uint256,uint256)": "infinite",
+				"withdraw(address,address,uint256)": "infinite",
+				"withdraw(address,address,uint256,uint256)": "infinite"
+			}
+		},
+		"methodIdentifiers": {}
+	},
+	"abi": []
+}

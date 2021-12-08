@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 
 
-import {LibMathSigned, LibMathUnsigned} from "./Lib/LibMath.sol";
+import {LibMathSigned, LibMathUnsigned} from "../Lib/LibMath.sol";
 
 contract Collateral {
     using SafeERC20 for IERC20;
