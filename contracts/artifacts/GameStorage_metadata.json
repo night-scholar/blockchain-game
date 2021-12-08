@@ -79,6 +79,44 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "tokenFundsBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "tokenLibrary",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -117,11 +155,11 @@
 			]
 		},
 		"contracts/GameStorage.sol": {
-			"keccak256": "0x00357c0ef2a6806c03be7fc926bda185a48e6349232a1e88277939489fc3e700",
+			"keccak256": "0xa105035da1c514bbabcbe00abc783168597ddc24451e3a6b11208561086931bc",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://f6d3687cc12b0e41860820cbf2cd3f325207e6797da1ed1ee01b1801efdeacb1",
-				"dweb:/ipfs/QmPg9bUAGn2L25JwpTvEbXNwztHzfxHtHwbYoAXTsj1bC1"
+				"bzz-raw://f454c5996aa6e1017383cce5a1c3e431cee6441df4245b5bf755e846f45dd922",
+				"dweb:/ipfs/QmNs6yoxi43F5Ni5VsButzxvpD2auyyFUAtqRjTiZS9oae"
 			]
 		}
 	},

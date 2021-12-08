@@ -73,11 +73,11 @@
 			]
 		},
 		"contracts/props/Collateral.sol": {
-			"keccak256": "0x8d425aa605fea996ffffd2fa27e1cbc721b775295b0ffe9c1b9800f8bb01f09d",
+			"keccak256": "0x1d35217ab74c18fe4c5309d2a6e9f7fef26b3d9a85e94cd8f726352bf3b89060",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://4545186958dacdbcc776ecea3f04c1421004d552396b8e9d0d25c887a2de137c",
-				"dweb:/ipfs/QmTS2W1DJqAYWZtzYMNQSYimMFMr4fvxHFvK5tuzGYC98B"
+				"bzz-raw://0c234d9349525d0f5f5214e5d4abb6687408a3b823c22484236545ae66001ea2",
+				"dweb:/ipfs/QmZ1T19Upr8uqHDyBydsqYueCWzN59HwEQdTgWjZ8XoW4z"
 			]
 		}
 	},

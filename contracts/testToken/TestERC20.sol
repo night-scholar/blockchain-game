@@ -186,7 +186,7 @@ contract StandardToken is ERC20, BasicToken {
 }
 
 
-contract MyTestToken is StandardToken {
+contract TestERC20 is StandardToken {
     using SafeMath for uint256;
     string public name;
     string public symbol;

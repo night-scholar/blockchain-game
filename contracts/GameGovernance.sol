@@ -15,13 +15,17 @@ contract GameGovernance is GameStorage,Collateral,Equipment,Ownable{
 
     //添加代币到代币库
     function addToken(string memory tokenName,address tokenAddress) onlyOwner external {
+        //要求系统不在暂停状态
+        require(!isPaused,"system paused");
         //要求代币不存在于Token库中
-        require( keccak256(abi.encodePacked(tokenLibrary[tokenAddress])) == keccak256(abi.encodePacked(tokenName)),"token already exists");
+        require(bytes(tokenLibrary[tokenAddress]).length == 0,"token already exists");
         tokenLibrary[tokenAddress] = tokenName;
     }
 
     //添加游戏
     function addGame(string memory gameName,address profitToken,address lossToken) external onlyOwner{
+        //要求系统不在暂停状态
+        require(!isPaused,"system paused");
         require(lossToken != address(0),"lossToken address can not be address(0)");
         require(profitToken != address(0),"profitToken address can not be address(0)");
         require(GameLibrary[gameName].lossToken == address(0),"game is alive");
@@ -33,6 +37,10 @@ contract GameGovernance is GameStorage,Collateral,Equipment,Ownable{
 
     //添加NFT对应游戏权限
     function addEquipment(uint256 tokenId,string memory gameName) onlyOwner external{
+        //要求系统不在暂停状态
+        require(!isPaused,"system paused");
+        //要求游戏存在
+        require(GameLibrary[gameName].lossToken != address(0),"game not alive");
         equipmentCorGame[tokenId] = gameName;
     }
  
@@ -46,6 +54,7 @@ contract GameGovernance is GameStorage,Collateral,Equipment,Ownable{
         return 0;
     }
 
+    //添加余额
     function increaseBalance(address tokenAddress,address player,uint256 amount) internal{
         for (uint i =0 ; i<Wallets[player].tokenAddresses.length ;i++){
             if (Wallets[player].tokenAddresses[i].tokenAddress == tokenAddress){
@@ -53,7 +62,22 @@ contract GameGovernance is GameStorage,Collateral,Equipment,Ownable{
             }
         }
     }
+    
+    //添加token余额
+    function increaseTokenToFund(address tokenAddress,uint256 amount) onlyOwner payable external{
+        Collateral.deposit(tokenAddress,msg.sender, amount);
+        tokenFundsBalance[tokenAddress] = tokenFundsBalance[tokenAddress].add(amount);
+    }
 
+    //减少token余额
+    function decreaseTokenFromFund(address tokenAddress,uint256 amount) onlyOwner external{
+        require(tokenFundsBalance[tokenAddress] >= amount,"balance not enough");
+        tokenFundsBalance[tokenAddress] = tokenFundsBalance[tokenAddress].sub(amount);
+        Collateral.withdraw(tokenAddress,msg.sender, amount);
+    }
+
+
+    //减少余额
     function decreaseBalance(address tokenAddress,address player,uint256 amount) internal{
         for (uint i =0 ; i<Wallets[player].tokenAddresses.length ;i++){
             if (Wallets[player].tokenAddresses[i].tokenAddress == tokenAddress){

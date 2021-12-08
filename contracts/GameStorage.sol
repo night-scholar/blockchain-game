@@ -48,10 +48,10 @@ contract GameStorage {
         TokenAddress[] tokenAddresses;
     }
     //用户对应的token地址的余额
-    mapping(address => Tokens)  Wallets;
+    mapping(address => Tokens) Wallets;
 
     //erc20 token库 token地址->token名称
-    mapping(address => string) tokenLibrary;
+    mapping(address => string) public tokenLibrary;
     //系统是否暂停
     bool public isPaused;
     
@@ -59,6 +59,9 @@ contract GameStorage {
     mapping(uint256 => string) public equipmentCorGame;
     //装备id对应的用户
     mapping(uint256 => address) public equipmentCorPlayer;
+
+    //token基金余额
+    mapping(address => uint256) public tokenFundsBalance;
 
     function oneHour() internal view returns(uint256){
         return _ONE_HOUR.mul(_WAD);

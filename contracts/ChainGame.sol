@@ -12,7 +12,7 @@ contract ChainGame is GameGovernance{
     function depositCollateral(address tokenAddress , uint256 amount) public payable returns(bool){
         require(!isPaused,"system paused");
         //要求代币存在于Token库中
-        require(bytes(tokenLibrary[tokenAddress]).length == 0 ,"can not find this token");
+        require(bytes(tokenLibrary[tokenAddress]).length != 0 ,"can not find this token");
         require(amount > 0, "amount must be greater than 0");
         Collateral.deposit(tokenAddress,msg.sender, amount);
         for (uint i =0 ; i<Wallets[msg.sender].tokenAddresses.length ;i++){
@@ -26,13 +26,13 @@ contract ChainGame is GameGovernance{
     }
 
     //取款ERC20
-    function withdrawCollateral(address tokenAddress,uint256 amount) public onlyOwner returns(bool){
+    function withdrawCollateral(address tokenAddress,uint256 amount) external returns(bool){
         //要求取款数量大于0
         require(amount > 0, "amount must be greater than 0");
         //要求系统不在暂停状态
         require(!isPaused,"system paused");
         //要求代币存在于Token库中
-        require(bytes(tokenLibrary[tokenAddress]).length == 0,"can not find this token");
+        require(bytes(tokenLibrary[tokenAddress]).length != 0,"can not find this token");
         if (PlayerState[msg.sender].inGame){
             //要求代币不在游戏中
             require(GameLibrary[PlayerState[msg.sender].gameName].profitToken!=tokenAddress&&GameLibrary[PlayerState[msg.sender].gameName].lossToken!=tokenAddress,"token in gaming");
@@ -51,6 +51,8 @@ contract ChainGame is GameGovernance{
 
     //存NFT
     function depositEquipment(uint256 tokenId) public payable{
+        //要求系统不在暂停状态
+        require(!isPaused,"system paused");
         //要求这件装备已经有对应的游戏记录
         require(bytes(equipmentCorGame[tokenId]).length > 0,"Useless equipment");
         equipmentCorPlayer[tokenId] = msg.sender;
@@ -59,6 +61,8 @@ contract ChainGame is GameGovernance{
 
     //取NFT 
     function withdrawEquipment(uint256 tokenId) public {
+        //要求系统不在暂停状态
+        require(!isPaused,"system paused");
         //要求这个NFT是该用户的
         require(equipmentCorPlayer[tokenId] == msg.sender,"You are not the owner of the equipment");
         //要求该NFT不在游戏中
@@ -68,6 +72,8 @@ contract ChainGame is GameGovernance{
 
     //开始游戏
     function startGame(string memory gameName,address player,uint256 tokenId,uint256 lossPerHour,uint256 profitPerHour) public onlyOwner{
+        //要求系统不在暂停状态
+        require(!isPaused,"system paused");
         //游戏是否可玩
         require(GameLibrary[gameName].lossToken != address(0),"game not alive");
         //装备是否已经存进来了
@@ -87,9 +93,11 @@ contract ChainGame is GameGovernance{
 
     //继续游戏
     function continueTheGame(address player) external onlyOwner{
+        //要求系统不在暂停状态
+        require(!isPaused,"system paused");
         State memory playerState = PlayerState[player];
         //要求玩家在游戏中
-        require(!playerState.inGame,"Player not in the game");
+        require(playerState.inGame,"Player not in the game");
         //是否超时
         uint256 endTime = playerState.endTime;
         uint256 timeNow = timeNow();
@@ -109,6 +117,8 @@ contract ChainGame is GameGovernance{
 
     //结束游戏
     function endGame() external{
+        //要求系统不在暂停状态
+        require(!isPaused,"system paused");
         State memory playerState = PlayerState[msg.sender];
         //要求玩家正在进行游戏
         require(playerState.inGame,"is not in game");
@@ -128,6 +138,8 @@ contract ChainGame is GameGovernance{
 
     //提取其他币
     function withdrawOtherERC20Tokens(address tokenAddress,uint256 amount,uint256 decimals) public onlyOwner {
+        //要求系统不在暂停状态
+        require(!isPaused,"system paused");
         require(decimals != 0 ,"token not in tokenBank");
         require(amount > 0, "amount must be greater than 0");
         Collateral.withdraw(tokenAddress,msg.sender, amount,decimals);

@@ -119,6 +119,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "decreaseTokenFromFund",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "equipmentAddress",
 				"outputs": [
@@ -265,6 +283,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "increaseTokenToFund",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "isPaused",
 				"outputs": [
@@ -352,6 +388,44 @@
 						"internalType": "bool",
 						"name": "",
 						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "tokenFundsBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "tokenLibrary",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
 					}
 				],
 				"stateMutability": "view",
@@ -517,36 +591,20 @@
 				"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96"
 			]
 		},
-		"contracts/Collateral.sol": {
-			"keccak256": "0x5de533a10541309495ba8bc7564ab5fa73262a305f3824096a37003c69d3ed6b",
-			"license": "GPL-3.0",
-			"urls": [
-				"bzz-raw://d9f4428b6bd1d0796e6092b9abb19da3083c7f9aa25181f628c9d19b6c3bc3f8",
-				"dweb:/ipfs/QmP25Z4mj6GvpyaHEMwnw3pHdgypvbkqyb1BcPVVynwP4z"
-			]
-		},
-		"contracts/Equipment.sol": {
-			"keccak256": "0x9b03cc30477d061099eb07c2c2b15473a6a3b9e692caaa5102d3d92d9ea13e00",
-			"license": "GPL-3.0",
-			"urls": [
-				"bzz-raw://e2477eb3060519565f172b653febe4db11b4c8f5e2e6d5f277975cdb284c3540",
-				"dweb:/ipfs/QmX5MDUpKvn8oBkYJzjz1LTu7sySSSw2LeExGeAyGVcCgx"
-			]
-		},
 		"contracts/GameGovernance.sol": {
-			"keccak256": "0x7d9d7a70aa01de277dac1161c41bb781f91011a53e9cff08a4ef04425c30229e",
+			"keccak256": "0x7eacf9ec3a90e704de33586e60278a483f5a11de088d94f401321e45b498a6c3",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://9b278a7b361f45c0a422616e080ba4c150a201b70c0884c40ac7145fb1a4d1f5",
-				"dweb:/ipfs/QmeXpYuiC6gysf82huRvKYyNH4kLqwhGWwSWi5Z97gNLQv"
+				"bzz-raw://e16091dd21e4f78b9fd32290231e1974d7a8bf3df0714af4176afd917f5fc503",
+				"dweb:/ipfs/QmczvxQHYpCo87omc2YFjreYYzANSFCFKqd2Fqoovc4TVN"
 			]
 		},
 		"contracts/GameStorage.sol": {
-			"keccak256": "0x00357c0ef2a6806c03be7fc926bda185a48e6349232a1e88277939489fc3e700",
+			"keccak256": "0xa105035da1c514bbabcbe00abc783168597ddc24451e3a6b11208561086931bc",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://f6d3687cc12b0e41860820cbf2cd3f325207e6797da1ed1ee01b1801efdeacb1",
-				"dweb:/ipfs/QmPg9bUAGn2L25JwpTvEbXNwztHzfxHtHwbYoAXTsj1bC1"
+				"bzz-raw://f454c5996aa6e1017383cce5a1c3e431cee6441df4245b5bf755e846f45dd922",
+				"dweb:/ipfs/QmNs6yoxi43F5Ni5VsButzxvpD2auyyFUAtqRjTiZS9oae"
 			]
 		},
 		"contracts/Lib/LibMath.sol": {
@@ -555,6 +613,22 @@
 			"urls": [
 				"bzz-raw://c8fec9deb476a8d4fc561b1fb6cd0d58d89a6ca935a40538aa236703a963e9c4",
 				"dweb:/ipfs/QmR6qZnCSDCWoSMnwLwPQ1pEhySyVUk4EctW8p1QC7fPbA"
+			]
+		},
+		"contracts/props/Collateral.sol": {
+			"keccak256": "0x1d35217ab74c18fe4c5309d2a6e9f7fef26b3d9a85e94cd8f726352bf3b89060",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://0c234d9349525d0f5f5214e5d4abb6687408a3b823c22484236545ae66001ea2",
+				"dweb:/ipfs/QmZ1T19Upr8uqHDyBydsqYueCWzN59HwEQdTgWjZ8XoW4z"
+			]
+		},
+		"contracts/props/Equipment.sol": {
+			"keccak256": "0x9b03cc30477d061099eb07c2c2b15473a6a3b9e692caaa5102d3d92d9ea13e00",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://e2477eb3060519565f172b653febe4db11b4c8f5e2e6d5f277975cdb284c3540",
+				"dweb:/ipfs/QmX5MDUpKvn8oBkYJzjz1LTu7sySSSw2LeExGeAyGVcCgx"
 			]
 		}
 	},

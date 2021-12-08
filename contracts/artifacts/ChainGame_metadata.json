@@ -144,6 +144,24 @@
 						"type": "uint256"
 					}
 				],
+				"name": "decreaseTokenFromFund",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
 				"name": "depositCollateral",
 				"outputs": [
 					{
@@ -322,6 +340,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "increaseTokenToFund",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "isPaused",
 				"outputs": [
@@ -442,6 +478,44 @@
 						"internalType": "bool",
 						"name": "",
 						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "tokenFundsBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "tokenLibrary",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
 					}
 				],
 				"stateMutability": "view",
@@ -668,27 +742,27 @@
 			]
 		},
 		"contracts/ChainGame.sol": {
-			"keccak256": "0xcaa84fea1a9e5a4636fa7a9d6cd87bb92f36f8d07bcbffab5aad948b9f67fd72",
+			"keccak256": "0xe166ba2e121df9497651a17a3f250a3c2181a7524bb4bdd26f6343e27e68be24",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://64c75836f0c7f8ba15b1568093a2bc4bb6ad7e033cdbfccfdcc429ab5454dcf8",
-				"dweb:/ipfs/QmULUdh3ahku5NbceWiTGQngFdMJNrkVqeBsVU9n9XLUcT"
+				"bzz-raw://29e81dc2a9771be0d42c052ab2ccf8602a6272350b03ecc55d3442eb504042e5",
+				"dweb:/ipfs/QmWCmtpqjzphiCcP9WKkB4V6S76zybPDt5MCsvdvHjtgxW"
 			]
 		},
 		"contracts/GameGovernance.sol": {
-			"keccak256": "0x57c1cd7b91c6fa855985cdc0318794834063dada4083a20d6a1a84ff7864af98",
+			"keccak256": "0xabcf9677be13a40e36138a3c1ff35e32239801645f23176d26e00b64693a405c",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://2139dd9710cc8486000ab453d68f3f2d313d903c512657564821d43fe9ca4c72",
-				"dweb:/ipfs/QmVLdwQzeunFbW6w4YTpqyEsX3Gvoh3SJuDC5Hp7J4NF8u"
+				"bzz-raw://33aa679d69c4c84a8022be0b4dde20aff1dd8a9bc2550e6ff56720d5739f2c1f",
+				"dweb:/ipfs/QmSBVZk9NJZDU5A3iRu4NxoDeJoovL9B3YTKyYzxmqd3Tr"
 			]
 		},
 		"contracts/GameStorage.sol": {
-			"keccak256": "0x00357c0ef2a6806c03be7fc926bda185a48e6349232a1e88277939489fc3e700",
+			"keccak256": "0xa105035da1c514bbabcbe00abc783168597ddc24451e3a6b11208561086931bc",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://f6d3687cc12b0e41860820cbf2cd3f325207e6797da1ed1ee01b1801efdeacb1",
-				"dweb:/ipfs/QmPg9bUAGn2L25JwpTvEbXNwztHzfxHtHwbYoAXTsj1bC1"
+				"bzz-raw://f454c5996aa6e1017383cce5a1c3e431cee6441df4245b5bf755e846f45dd922",
+				"dweb:/ipfs/QmNs6yoxi43F5Ni5VsButzxvpD2auyyFUAtqRjTiZS9oae"
 			]
 		},
 		"contracts/Lib/LibMath.sol": {
@@ -700,11 +774,11 @@
 			]
 		},
 		"contracts/props/Collateral.sol": {
-			"keccak256": "0x8d425aa605fea996ffffd2fa27e1cbc721b775295b0ffe9c1b9800f8bb01f09d",
+			"keccak256": "0x1d35217ab74c18fe4c5309d2a6e9f7fef26b3d9a85e94cd8f726352bf3b89060",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://4545186958dacdbcc776ecea3f04c1421004d552396b8e9d0d25c887a2de137c",
-				"dweb:/ipfs/QmTS2W1DJqAYWZtzYMNQSYimMFMr4fvxHFvK5tuzGYC98B"
+				"bzz-raw://0c234d9349525d0f5f5214e5d4abb6687408a3b823c22484236545ae66001ea2",
+				"dweb:/ipfs/QmZ1T19Upr8uqHDyBydsqYueCWzN59HwEQdTgWjZ8XoW4z"
 			]
 		},
 		"contracts/props/Equipment.sol": {
