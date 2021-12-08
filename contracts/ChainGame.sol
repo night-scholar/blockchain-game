@@ -51,13 +51,18 @@ contract ChainGame is GameGovernance{
 
     //存NFT
     function depositEquipment(uint256 tokenId) public payable{
+        //要求这件装备已经有对应的游戏记录
+        require(bytes(equipmentCorGame[tokenId]).length > 0,"Useless equipment");
         equipmentCorPlayer[tokenId] = msg.sender;
         Equipment.deposit(msg.sender,tokenId);
     }
 
     //取NFT 
     function withdrawEquipment(uint256 tokenId) public {
+        //要求这个NFT是该用户的
         require(equipmentCorPlayer[tokenId] == msg.sender,"You are not the owner of the equipment");
+        //要求该NFT不在游戏中
+        require(keccak256(abi.encodePacked(PlayerState[msg.sender].gameName)) != keccak256(abi.encodePacked(equipmentCorGame[tokenId])),"this equipment is in game");
         Equipment.withdraw(msg.sender,tokenId);
     }
 
@@ -80,64 +85,46 @@ contract ChainGame is GameGovernance{
         PlayerState[player] = (State(true,gameName,startTime,endTime,0,lossPerHour,profitPerHour));
     }
 
-    function getPlayerRevenue(address player) view public returns(PlayerRevenue memory param){
+    //继续游戏
+    function continueTheGame(address player) external onlyOwner{
         State memory playerState = PlayerState[player];
-        //判断玩家是否在进行游戏
-        if (!playerState.inGame){
-            return param;
-        }
-        GameAttribute memory gameAttribute = GameLibrary[playerState.gameName];
-
-        //获取当前时间
+        //要求玩家在游戏中
+        require(!playerState.inGame,"Player not in the game");
+        //是否超时
+        uint256 endTime = playerState.endTime;
         uint256 timeNow = timeNow();
-        //如果当前时间超过了结束时间，则按结束时间计算
-        uint256 realEndTime;
-        if (playerState.endTime<timeNow){
-            realEndTime = playerState.endTime;
+        //激活时间小于等于结束时间,没有超时，结束时间向后顺延一小时
+        if (endTime>= timeNow){
+            playerState.endTime = endTime.add(oneHour());
         }else{
-        //如果结束时间超过了当前时间，则按当前时间计算
-            realEndTime = timeNow;
+        //超时了,暂停时间=当前时间-结束时间，结束时间=当前时间+一小时
+            playerState.pauseTime = timeNow.sub(endTime);
+            playerState.endTime = timeNow.add(oneHour());
         }
+        //要求继续游戏后玩家余额满足支出
+        //查看该小时过后的实际游戏时间,小时*10**18
+        uint256 gameTime = (playerState.endTime.sub(playerState.startTime).sub(playerState.pauseTime)).div(_ONE_HOUR);
+        require(getBalance(GameLibrary[playerState.gameName].lossToken,player)>=gameTime.mul(playerState.lossPerHour).div(_WAD),"have not enough token");
+    }
+
+    //结束游戏
+    function endGame() external{
+        State memory playerState = PlayerState[msg.sender];
+        //要求玩家正在进行游戏
+        require(playerState.inGame,"is not in game");
+        //要求游戏已经结束
+        require(playerState.endTime <= timeNow(),"The game is not over yet");
         //获取实际游戏时间,小时*10**18,实际时间（小时）=(结束时间-开始时间-暂停时间)/一小时的时间
-        uint256 gameTime = (realEndTime.sub(playerState.startTime).sub(playerState.pauseTime)).div(_ONE_HOUR);
+        uint256 gameTime = (playerState.endTime.sub(playerState.startTime).sub(playerState.pauseTime)).div(_ONE_HOUR);
         //判断收益
         uint256 profitNum = gameTime.mul(playerState.profitPerHour).div(_WAD);
         //判断支出
         uint256 lossNum = gameTime.mul(playerState.lossPerHour).div(_WAD);
-        //获取当前游戏收益情况
-        param.gameName = playerState.gameName;
-        param.startTime = playerState.startTime;
-        param.endTime = playerState.endTime;
-        param.pauseTime = playerState.pauseTime;
-        param.profitTokenAddress = gameAttribute.profitToken;
-        param.profitPerHour = playerState.profitPerHour;
-        param.profitNum = profitNum;
-        param.lossTokenAddress = gameAttribute.lossToken;
-        param.lossPerHour = playerState.lossPerHour;
-        param.lossNum = lossNum;
+        //增加收益到余额
+        increaseBalance(GameLibrary[playerState.gameName].profitToken, msg.sender, profitNum);
+        //减少余额
+        decreaseBalance(GameLibrary[playerState.gameName].lossToken, msg.sender, lossNum);
     }
-
-    //继续游戏
-    function continueTheGame(address player) public {
-        //要求玩家在游戏中
-        require(!PlayerState[player].inGame,"Player not in the game");
-        //是否超时
-        uint256 endTime = PlayerState[player].endTime;
-        uint256 timeNow = timeNow();
-        //激活时间小于等于结束时间,没有超时，结束时间向后顺延一小时
-        if (endTime>= timeNow){
-            PlayerState[player].endTime = endTime.add(oneHour());
-        }else{
-        //超时了,暂停时间=当前时间-结束时间，结束时间=当前时间+一小时
-            PlayerState[player].pauseTime = timeNow.sub(endTime);
-            PlayerState[player].endTime = timeNow.add(oneHour());
-        }
-        //要求继续游戏后玩家余额满足支出
-        //查看该小时过后的实际游戏时间,小时*10**18
-        uint256 gameTime = (PlayerState[player].endTime.sub(PlayerState[player].startTime).sub(PlayerState[player].pauseTime)).div(_ONE_HOUR);
-        require(getBalance(GameLibrary[PlayerState[player].gameName].lossToken,player)>=gameTime.mul(PlayerState[player].lossPerHour).div(_WAD),"have not enough token");
-    }
-
 
     //提取其他币
     function withdrawOtherERC20Tokens(address tokenAddress,uint256 amount,uint256 decimals) public onlyOwner {

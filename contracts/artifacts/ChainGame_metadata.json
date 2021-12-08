@@ -86,12 +86,12 @@
 					},
 					{
 						"internalType": "address",
-						"name": "lossToken",
+						"name": "profitToken",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "profitToken",
+						"name": "lossToken",
 						"type": "address"
 					}
 				],
@@ -166,6 +166,13 @@
 				"name": "depositEquipment",
 				"outputs": [],
 				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "endGame",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -661,11 +668,11 @@
 			]
 		},
 		"contracts/ChainGame.sol": {
-			"keccak256": "0xdaffff027fcbb82af3d516196264f420b81f913ed5e899ab6195b6ea98cd06ad",
+			"keccak256": "0xcaa84fea1a9e5a4636fa7a9d6cd87bb92f36f8d07bcbffab5aad948b9f67fd72",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://86e190017f1b632c951876923f9300183800f00ccdb79a653efca414c64e5066",
-				"dweb:/ipfs/QmTiTVhpsQDD3NNswEn3E2HBPKysNwoewvZj51i4sshEj9"
+				"bzz-raw://64c75836f0c7f8ba15b1568093a2bc4bb6ad7e033cdbfccfdcc429ab5454dcf8",
+				"dweb:/ipfs/QmULUdh3ahku5NbceWiTGQngFdMJNrkVqeBsVU9n9XLUcT"
 			]
 		},
 		"contracts/Collateral.sol": {
@@ -685,11 +692,11 @@
 			]
 		},
 		"contracts/GameGovernance.sol": {
-			"keccak256": "0x5f8a4104b2993a2951282412e158fdeb55fa1ba6e47d2ec0e8d8d5c7ec545caa",
+			"keccak256": "0x7d9d7a70aa01de277dac1161c41bb781f91011a53e9cff08a4ef04425c30229e",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://575845f9a0b56026b36f304868b5ab7ac2e7bca8c84af075aac5f15f62239e6e",
-				"dweb:/ipfs/QmUVr2JWREjgdKKnqQaspsRqeWDudXwRGCHhcmbHHxAiwJ"
+				"bzz-raw://9b278a7b361f45c0a422616e080ba4c150a201b70c0884c40ac7145fb1a4d1f5",
+				"dweb:/ipfs/QmeXpYuiC6gysf82huRvKYyNH4kLqwhGWwSWi5Z97gNLQv"
 			]
 		},
 		"contracts/GameStorage.sol": {

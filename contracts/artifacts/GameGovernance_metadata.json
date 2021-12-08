@@ -86,12 +86,12 @@
 					},
 					{
 						"internalType": "address",
-						"name": "lossToken",
+						"name": "profitToken",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "profitToken",
+						"name": "lossToken",
 						"type": "address"
 					}
 				],
@@ -188,6 +188,77 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					}
+				],
+				"name": "getPlayerRevenue",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "gameName",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "startTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "endTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "pauseTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "profitTokenAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "profitPerHour",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "profitNum",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "lossTokenAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "lossPerHour",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "lossNum",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct GameStorage.PlayerRevenue",
+						"name": "param",
+						"type": "tuple"
 					}
 				],
 				"stateMutability": "view",
@@ -463,11 +534,11 @@
 			]
 		},
 		"contracts/GameGovernance.sol": {
-			"keccak256": "0x5f8a4104b2993a2951282412e158fdeb55fa1ba6e47d2ec0e8d8d5c7ec545caa",
+			"keccak256": "0x7d9d7a70aa01de277dac1161c41bb781f91011a53e9cff08a4ef04425c30229e",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://575845f9a0b56026b36f304868b5ab7ac2e7bca8c84af075aac5f15f62239e6e",
-				"dweb:/ipfs/QmUVr2JWREjgdKKnqQaspsRqeWDudXwRGCHhcmbHHxAiwJ"
+				"bzz-raw://9b278a7b361f45c0a422616e080ba4c150a201b70c0884c40ac7145fb1a4d1f5",
+				"dweb:/ipfs/QmeXpYuiC6gysf82huRvKYyNH4kLqwhGWwSWi5Z97gNLQv"
 			]
 		},
 		"contracts/GameStorage.sol": {
