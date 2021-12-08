@@ -31,10 +31,10 @@ contract GameGovernance is GameStorage,Collateral,Equipment,Ownable{
         equipmentCorGame[tokenId] = gameName;
     }
  
-    function getBalance(address tokenAddress) public view returns (uint256){
-        for (uint i =0 ; i<Wallets[msg.sender].tokenAddresses.length ;i++){
-            if (Wallets[msg.sender].tokenAddresses[i].tokenAddress == tokenAddress){
-                return Wallets[msg.sender].tokenAddresses[i].amount;
+    function getBalance(address tokenAddress,address player) public view returns (uint256){
+        for (uint i =0 ; i<Wallets[player].tokenAddresses.length ;i++){
+            if (Wallets[player].tokenAddresses[i].tokenAddress == tokenAddress){
+                return Wallets[player].tokenAddresses[i].amount;
             }
         }
         return 0;

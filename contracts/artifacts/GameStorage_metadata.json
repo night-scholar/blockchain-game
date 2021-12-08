@@ -117,11 +117,11 @@
 			]
 		},
 		"contracts/GameStorage.sol": {
-			"keccak256": "0x618d10c8d9c6bc5248da672178f0af7ba59502ae0c60651f1c2c56f04eb75bb8",
+			"keccak256": "0x00357c0ef2a6806c03be7fc926bda185a48e6349232a1e88277939489fc3e700",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://c99aa38ffb26c3080fcf7af0318d4aeb0830810a170045dbebcf7d3f3d9f99ea",
-				"dweb:/ipfs/Qma4pEq2rXm6HwAsrJ1izX8rtV9r1Sispmh3dwaaUhQcRd"
+				"bzz-raw://f6d3687cc12b0e41860820cbf2cd3f325207e6797da1ed1ee01b1801efdeacb1",
+				"dweb:/ipfs/QmPg9bUAGn2L25JwpTvEbXNwztHzfxHtHwbYoAXTsj1bC1"
 			]
 		}
 	},

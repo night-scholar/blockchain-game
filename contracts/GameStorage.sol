@@ -13,7 +13,7 @@ contract GameStorage {
         string gameName;
         uint256 startTime;
         uint256 endTime;
-        uint256 lastActivationTime;
+        uint256 pauseTime;
         uint256 lossPerHour;
         uint256 profitPerHour;
     }
@@ -23,13 +23,13 @@ contract GameStorage {
         string gameName;
         uint256 startTime;
         uint256 endTime;
+        uint256 pauseTime;
         address profitTokenAddress;
         uint256 profitPerHour;
         uint256 profitNum;
         address lossTokenAddress;
         uint256 lossPerHour;
         uint256 lossNum;
-        uint256 pauseTime;
     }
 
     //游戏库(游戏名称->游戏属性)

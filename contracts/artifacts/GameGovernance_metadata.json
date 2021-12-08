@@ -175,6 +175,11 @@
 						"internalType": "address",
 						"name": "tokenAddress",
 						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
 					}
 				],
 				"name": "getBalance",
@@ -442,11 +447,11 @@
 			]
 		},
 		"contracts/Collateral.sol": {
-			"keccak256": "0xea152999c29b130c3bc9622842be59ca3bd83a49ce0600aa09ce14da0b41733e",
+			"keccak256": "0x5de533a10541309495ba8bc7564ab5fa73262a305f3824096a37003c69d3ed6b",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://8fef02b386d1f4b04b1f16eed5d8fdabdacbbb2ff2aac822d2dc01c43c155a43",
-				"dweb:/ipfs/QmUYH3FUefLpab7xQSzeH4vxdBsTqXET17SQReySgUnhcx"
+				"bzz-raw://d9f4428b6bd1d0796e6092b9abb19da3083c7f9aa25181f628c9d19b6c3bc3f8",
+				"dweb:/ipfs/QmP25Z4mj6GvpyaHEMwnw3pHdgypvbkqyb1BcPVVynwP4z"
 			]
 		},
 		"contracts/Equipment.sol": {
@@ -458,19 +463,19 @@
 			]
 		},
 		"contracts/GameGovernance.sol": {
-			"keccak256": "0x761a2340fe32a54fb03dcfbcfef918a42f20e7dc51260648a6d9e775253be523",
+			"keccak256": "0x5f8a4104b2993a2951282412e158fdeb55fa1ba6e47d2ec0e8d8d5c7ec545caa",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://7279ee341c9d17baf550e992a8e0351f448cb13d2d2acfdd7bb386290b300242",
-				"dweb:/ipfs/QmbTpdWpx629NJacr68WTwhNaivj7h2PippBkRa5T91a1C"
+				"bzz-raw://575845f9a0b56026b36f304868b5ab7ac2e7bca8c84af075aac5f15f62239e6e",
+				"dweb:/ipfs/QmUVr2JWREjgdKKnqQaspsRqeWDudXwRGCHhcmbHHxAiwJ"
 			]
 		},
 		"contracts/GameStorage.sol": {
-			"keccak256": "0x0f8844c3b1646b901948f5b25269b396b7cab023cc84a9c4c06e55942b224898",
+			"keccak256": "0x00357c0ef2a6806c03be7fc926bda185a48e6349232a1e88277939489fc3e700",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://83971ed4ee51dd1b6fc190846016b8d7d7a839cea923e8995185d5578b00bcbf",
-				"dweb:/ipfs/QmUWQc3oATmtx7Nxb78MF9TJBSLhrx3T86AsPzpmd64HNG"
+				"bzz-raw://f6d3687cc12b0e41860820cbf2cd3f325207e6797da1ed1ee01b1801efdeacb1",
+				"dweb:/ipfs/QmPg9bUAGn2L25JwpTvEbXNwztHzfxHtHwbYoAXTsj1bC1"
 			]
 		},
 		"contracts/Lib/LibMath.sol": {
