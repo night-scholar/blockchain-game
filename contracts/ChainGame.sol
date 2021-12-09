@@ -131,10 +131,14 @@ contract ChainGame is GameGovernance{
         uint256 profitNum = gameTime.mul(playerState.profitPerHour).div(_WAD);
         //判断支出
         uint256 lossNum = gameTime.mul(playerState.lossPerHour).div(_WAD);
-        //增加收益到余额
-        increaseBalance(GameLibrary[playerState.gameName].profitToken, msg.sender, profitNum);
-        //减少余额
-        decreaseBalance(GameLibrary[playerState.gameName].lossToken, msg.sender, lossNum);
+        //从基金取出到余额
+        GameAttribute memory gameAttribute = GameLibrary[playerState.gameName];
+        require(tokenFundsBalance[gameAttribute.profitToken].sub(profitNum) >= 0,"funding profitToken not enough");
+        increaseBalance(gameAttribute.profitToken, msg.sender, profitNum);
+        tokenFundsBalance[gameAttribute.profitToken] = tokenFundsBalance[gameAttribute.profitToken].sub(profitNum);
+        //从余额取出到基金
+        decreaseBalance(gameAttribute.lossToken, msg.sender, lossNum);
+        tokenFundsBalance[gameAttribute.lossToken] = tokenFundsBalance[gameAttribute.lossToken].add(lossNum);
         //恢复状态
         State memory newState;
         PlayerState[msg.sender] = newState;

@@ -742,11 +742,11 @@
 			]
 		},
 		"contracts/ChainGame.sol": {
-			"keccak256": "0x9ba595bbe727d13359bfa6b7fb447dd48575a9a2a9226a804c4d8258842f94b3",
+			"keccak256": "0xc4da89bcd182825b02520c63d39d5bde393311766367f5383ac012253a57f71f",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://fcb99ad443fae382f9dc6b7e8495039be1ddbd6995af2044b01b654ce68a759c",
-				"dweb:/ipfs/QmaqaekimLpzRPkZYyrQ76hfMGMH9dzkUTbZ2UVTCoRDn1"
+				"bzz-raw://c23af6c9285e26dab57a255d91b65762f6ac9fedadf0d0773bc0ec1550a32ceb",
+				"dweb:/ipfs/Qmetn5P4S4TcA8pGYBeCLrSpfpqWvkgHDAvLEr56DjUuMu"
 			]
 		},
 		"contracts/GameGovernance.sol": {
