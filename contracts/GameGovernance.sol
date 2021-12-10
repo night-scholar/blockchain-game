@@ -78,13 +78,13 @@ contract GameGovernance is GameStorage,Collateral,Equipment,Ownable{
     }
 
     //添加token余额
-    function increaseTokenToFund(address tokenAddress,uint256 amount) onlyOwner payable external{
+    function depositToFund(address tokenAddress,uint256 amount) onlyOwner payable external{
         Collateral.deposit(tokenAddress,msg.sender, amount);
         tokenFundsBalance[tokenAddress] = tokenFundsBalance[tokenAddress].add(amount);
     }
 
     //减少token余额
-    function decreaseTokenFromFund(address tokenAddress,uint256 amount) onlyOwner external{
+    function withdrawFromFund(address tokenAddress,uint256 amount) onlyOwner external{
         require(tokenFundsBalance[tokenAddress] >= amount,"balance not enough");
         tokenFundsBalance[tokenAddress] = tokenFundsBalance[tokenAddress].sub(amount);
         Collateral.withdraw(tokenAddress,msg.sender, amount);
