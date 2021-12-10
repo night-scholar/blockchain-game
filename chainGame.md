@@ -56,10 +56,3 @@ ChainGame（游戏）
 游戏名称：CutDownTrees
 
 使用GASOLINE（1个每小时），获得WOOD（1个每小时）。
-
-## 问题
-
-每次存入NFT都需要授权？
-
-存入的ERC20token在游戏结束取款后怎么记录。
-

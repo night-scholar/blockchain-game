@@ -323,11 +323,11 @@
 	},
 	"sources": {
 		"contracts/testToken/TestERC20.sol": {
-			"keccak256": "0x98e5cc738a917c83819b53e3b018a551af4b33e566a6fa37c2d04d16317503a8",
+			"keccak256": "0x4058aa838042fd186d407b84ae0206cf26a93ad27af7063901f8a7fbb0a3fc53",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://dda81032dc1ce01a400e43d5ad134ef270f60f048227217e58729b3bbd61a193",
-				"dweb:/ipfs/QmajA3LFUbeKrEue6TTbHaLHTSwyS8qLxHtpyPa7hyqbBV"
+				"bzz-raw://a1eb9e13e0b830d4fbcd658c0ec5fbf25484e6a14d2238c643ffba41417a7b06",
+				"dweb:/ipfs/QmaFRqoRQUEs5ReNhPpJ6wfTvfFvr5PcjPT5oYgEZYcRBx"
 			]
 		}
 	},

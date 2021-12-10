@@ -71,7 +71,7 @@ contract ChainGame is GameGovernance{
     }
 
     //开始游戏
-    function startGame(string memory gameName,address player,uint256 tokenId,uint256 lossPerHour,uint256 profitPerHour) public onlyOwner{
+    function startTheGame(string memory gameName,address player,uint256 tokenId,uint256 lossPerHour,uint256 profitPerHour) public onlyOwner{
         //要求系统不在暂停状态
         require(!isPaused,"system paused");
         //游戏是否可玩
@@ -117,7 +117,7 @@ contract ChainGame is GameGovernance{
     }
 
     //结束游戏
-    function endGame() external{
+    function exitTheGame() external{
         //要求系统不在暂停状态
         require(!isPaused,"system paused");
         State memory playerState = PlayerState[msg.sender];
