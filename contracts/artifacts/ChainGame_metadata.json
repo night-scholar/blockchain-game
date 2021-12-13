@@ -144,24 +144,6 @@
 						"type": "uint256"
 					}
 				],
-				"name": "decreaseTokenFromFund",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "tokenAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
 				"name": "depositCollateral",
 				"outputs": [
 					{
@@ -182,6 +164,24 @@
 					}
 				],
 				"name": "depositEquipment",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "depositToFund",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -337,24 +337,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "tokenAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "increaseTokenToFund",
-				"outputs": [],
-				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -589,6 +571,24 @@
 						"internalType": "uint256",
 						"name": "amount",
 						"type": "uint256"
+					}
+				],
+				"name": "withdrawFromFund",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
 					},
 					{
 						"internalType": "uint256",
@@ -750,11 +750,11 @@
 			]
 		},
 		"contracts/GameGovernance.sol": {
-			"keccak256": "0x4f11a7642639cef1c2633882e56fbd74f5c516c278d2241b8eff2479e5fc279b",
+			"keccak256": "0x25e85eb425c189b099b3877514b1bc77ca444408a0139fa93b1035d1e64e8014",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://bd43874f187e8b9494faa159b573dbc0f9c17a668efc0ea2bb708520fe43c876",
-				"dweb:/ipfs/QmPN7ByogYbSxkVSgdEep93Gh2aaqqvWaMSbgoXkHsWD6v"
+				"bzz-raw://f4fbdcb051499a494db53a3f4c2969310affa0a9bae10922048f10feb580d063",
+				"dweb:/ipfs/QmU3RERddUMB6zmQR6JzGyMGT9BzG5xVJREjJ7eJbcnMRp"
 			]
 		},
 		"contracts/GameStorage.sol": {

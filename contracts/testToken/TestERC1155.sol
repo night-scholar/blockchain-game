@@ -3,19 +3,48 @@
 pragma solidity ^0.7.6;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract TestERC1155 is ERC1155 {
-    uint256 public constant GOLD = 0;
-    uint256 public constant SILVER = 1;
-    uint256 public constant THORS_HAMMER = 2;
-    uint256 public constant SWORD = 3;
-    uint256 public constant SHIELD = 4;
+contract TestERC1155 is ERC1155,Ownable {
+    using Counters for Counters.Counter;
+    Counters.Counter private _tokenIdCounter;
+    mapping(uint256 => string) public indexToItem;
+    mapping(string => uint256) public itemToIndex;
 
     constructor() public ERC1155("https://game.example/api/item/{id}.json") {
-        _mint(msg.sender, GOLD, 10**18, "");
-        _mint(msg.sender, SILVER, 10**27, "");
-        _mint(msg.sender, THORS_HAMMER, 1, "");
-        _mint(msg.sender, SWORD, 10**9, "");
-        _mint(msg.sender, SHIELD, 10**9, "");
+
+    }
+
+    function addItem(string memory _itemName) external{
+        require(itemToIndex[_itemName] == 0,"this item name already exist");
+        _tokenIdCounter.increment();
+        uint256 tokenId = _tokenIdCounter.current();
+        indexToItem[tokenId] = _itemName;
+        itemToIndex[_itemName] = tokenId;
+    }
+
+    function mint(address to,uint256 tokenId,uint256 amount) external onlyOwner{
+        require(to != address(0), "mint to zero address");
+        require(tokenIdExist(tokenId), "tokenId not exist");
+        _mint(to,tokenId,amount,"");
+    }
+
+
+    function burn(address to, uint256 tokenId, uint256 amount) external onlyOwner{
+        require(to != address(0), "burn zero address");
+        require(tokenIdExist(tokenId), "tokenId not exist");
+        _burn(to, tokenId, amount);
+    }
+    
+    function tokenIdExist(uint256 tokenId) view public returns(bool){
+        if (keccak256(abi.encodePacked(indexToItem[tokenId])) != keccak256(abi.encodePacked(""))) {
+            return true;
+        }
+        return false;
+    }
+
+    function setURI(string memory newuri) external onlyOwner {
+        _setURI(newuri);
     }
 }
