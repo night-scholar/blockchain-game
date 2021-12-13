@@ -18,7 +18,7 @@ contract TestERC721 is ERC721, Ownable {
         _setBaseURI(_uri);
     }
 
-  function mint(address _to, string calldata _uri) external onlyOwner {
+  function mint(address _to, string calldata _uri) external onlyOwner  {
     uint256 _tokenId = _tokenIdCounter.current();
     _tokenIdCounter.increment();
     super._mint(_to, _tokenId);
