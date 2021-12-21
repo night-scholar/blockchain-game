@@ -65,7 +65,7 @@ contract GameGovernance is GameStorage,Collateral,Equipment,Ownable{
         Wallets[player].tokenAddresses.push(TokenAddress(tokenAddress,amount));
         return true;
     }
-
+ 
     //减少余额
     function decreaseBalance(address tokenAddress,address player,uint256 amount) internal returns(bool){
         for (uint i =0 ; i<Wallets[player].tokenAddresses.length ;i++){

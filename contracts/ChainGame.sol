@@ -153,3 +153,4 @@ contract ChainGame is GameGovernance{
         Collateral.withdraw(tokenAddress,msg.sender, amount,decimals);
     }
 }
+ 
